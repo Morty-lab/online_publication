@@ -36,7 +36,7 @@
 
 		<div class="mb-4">
 			<label for="abstract" class="block text-gray-600 text-sm font-medium mb-2">Abstract</label>
-			<div id="editor"></div>
+			<textarea name="abstract" id="editor"></textarea>
 
 			<script>
 				ClassicEditor

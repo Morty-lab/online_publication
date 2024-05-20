@@ -76,13 +76,21 @@ $route['volumes'] = 'volumecontroller/view';
 
 
 $route['articles'] = 'articlecontroller/view/articles';
+$route['add-article'] = 'articlecontroller/create_article';
+$route['deleteArticle'] = 'articlecontroller/delete';
+$route['editArticle'] = 'articlecontroller/edit';
+$route['updateArticle'] = 'articlecontroller/update';
+
+
 $route['addSubmission'] = 'articlecontroller/create_article';
 $route['submitArticle'] = 'articlecontroller/submit_article';
+$route['editSubmission'] = 'articlecontroller/edit_submission';
+$route['updateSubmission'] = 'articlecontroller/update_submission';
+$route['deleteSubmission'] = 'articlecontroller/delete_submission';
 
 
 $route['authors'] = 'authorcontroller/view/authors';
 
-$route['add-article'] = 'articlecontroller/create_article';
 
 $route['upload'] = 'uploadcontroller/index';
 $route['doupload'] = 'uploadcontroller/do_upload';

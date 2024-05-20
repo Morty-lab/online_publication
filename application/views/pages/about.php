@@ -20,7 +20,22 @@
 	</div>
 	<div class="col-span-2 ">
 
-		<?php foreach ($articles as $i): ?>
+		<?php
+		if(empty($articles)){
+			?>
+			<div
+				class="w-md h-40 mx-auto bg-white rounded-xl shadow-xl shadow-gray-400 overflow-hidden m-4 p-5 border-2 border-gray-300  flex items-center justify-center ">
+			
+					<!-- Article Image -->
+				
+						<h1 class="font-semibold text-2xl">No Articles found</h1>
+
+			
+			</div>
+			<?php
+		}
+		 foreach ($articles as $i): 
+		 ?>
 			<div
 				class="max-w-md mx-auto bg-white rounded-xl shadow-xl shadow-gray-400 overflow-hidden md:max-w-2xl m-4 p-5 border-2 border-gray-300">
 				<div class="uppercase tracking-wide text-lg text-gray-500 font-semibold"><?= $i["title"] ?></div>
