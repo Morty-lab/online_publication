@@ -22,10 +22,16 @@
 		</div>
 		<div class="overflow-y-auto">
 			<div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-				<div class="flex justify-end">
-					<a href="createUser"
+				<div class="flex justify-end" x-show="open">
+					<a href="createUser?role=2"
 						class=" my-4 bg-[#77B0AA] hover:bg-[#003C43] text-white font-bold py-2 px-4 rounded-full">
-						Add Record
+						Add Evaluator
+					</a>
+				</div>
+				<div class="flex justify-end" x-show="!open">
+					<a href="createUser?role=3"
+						class=" my-4 bg-[#77B0AA] hover:bg-[#003C43] text-white font-bold py-2 px-4 rounded-full">
+						Add Author
 					</a>
 				</div>
 
@@ -167,11 +173,11 @@
 										<!-- <a href="editUser?id=<?= $author["auid"] ?>"
 											class="bg-green-500 hover:bg-green-700 text-gray-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
 										</a> -->
-										<a href="deleteUser/<?= $author["auid"] ?>"
+										<a href="deleteAuthor?id=<?= $author["auid"] ?>"
 											class="px-2 py-2 bg-[#135D66] rounded-md flex justify-center items-center w-fit">
 											<img src="<?= base_url() ?>assets/delete.png" alt="" class="h-5 w-5 inline-block ">
 										</a>
-										<a href="editUser?id=<?= $author["auid"] ?>"
+										<a href="editAuthor?id=<?= $author["auid"] ?>"
 											class="px-2 py-2 bg-[#135D66] rounded-md flex justify-center items-center w-fit">
 											<img src="<?= base_url() ?>assets/pencil-simple.svg" alt="" class="h-5 w-5 inline-block ">
 										</a>

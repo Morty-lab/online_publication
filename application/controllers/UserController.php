@@ -26,44 +26,50 @@ class UserController extends CI_Controller
 		$this->load->view('templates/userFooter', $data);
 	}
 
-	public function create($page = "adduser")
+	public function create()
 	{
-
+		$data["role"] = $this->input->get('role');
 
 		$this->load->view('templates/userHeader');
-		$this->load->view('user/' . $page);
+		$this->load->view('user/adduser',$data);
 		// $this->load->view('modals/authModal',$data);
 		$this->load->view('templates/userFooter');
 	}
 
 	public function add()
 	{
-		// Retrieve form data
+		$role = $this->input->get('role');
 		$completeName = $this->input->post('completeName');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-
-		// Prepare data array
 		$data = array(
 			'complete_name' => $completeName,
 			'email' => $email,
 			'pword' => $password,
+			'role' => $role
 		);
 
-		// $data = array(
-		// 	'complete_name' => "John Doe",
-		// 	'email' => "z5fDy@example.com",
-		// 	'pword' => "password1",
-		// );
+	
 
 		// Call the model's add_user method
 		$this->user_model->add_user($data);
+		if ($role == 3) {
+			$authorData = array(
+				'author_name' => $completeName,
+				'email' => $email,
+				'contact_num' => $this->input->post("contact_num"),
+				'title' => $this->input->post("title")
+			);
+			$this->author_model->add_author($authorData);
+		}
+
 		redirect('user');
 	}
 
 	public function edit(){
 		$id = $this->input->get('id');
 		$data['user'] = $this->user_model->get_user_by_id($id);
+		$data['title'] = 'Edit Evaluator';
 		
 		$this->load->view('templates/userHeader');
 		$this->load->view('user/edituser', $data);

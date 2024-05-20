@@ -66,13 +66,22 @@ $route['editUser'] = 'usercontroller/edit';
 $route['updateUser'] = 'usercontroller/update';
 $route['deleteUser/(:num)'] = 'usercontroller/delete/$1';
 
+$route['editAuthor'] = 'authorcontroller/edit';
+$route['updateAuthor'] = 'authorcontroller/update';
+$route['deleteAuthor'] = 'authorcontroller/delete';
 //Dashbaord
 $route['dashboard'] = 'dashboardcontroller/index';
 
 $route['archives'] = 'archivecontroller/view';
 
 $route['volumes'] = 'volumecontroller/view';
-
+$route['createVolume'] = 'volumecontroller/create';
+$route['addVolume'] = 'volumecontroller/add';
+$route['deleteVolume'] = 'volumecontroller/delete';
+$route['editVolume'] = 'volumecontroller/edit';
+$route['updateVolume'] = 'volumecontroller/update';
+$route['archiveVolume'] = 'volumecontroller/archive';
+$route['publishVolume'] = 'volumecontroller/publish';
 
 
 $route['articles'] = 'articlecontroller/view/articles';
@@ -89,7 +98,6 @@ $route['updateSubmission'] = 'articlecontroller/update_submission';
 $route['deleteSubmission'] = 'articlecontroller/delete_submission';
 
 
-$route['authors'] = 'authorcontroller/view/authors';
 
 
 $route['upload'] = 'uploadcontroller/index';

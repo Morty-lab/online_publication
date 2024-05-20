@@ -21,7 +21,7 @@ class User_model extends CI_Model
 	{
 		$this->db->where('userid', $id);
 		$query = $this->db->get('users');
-		return $query->row();
+		return $query->row_array();
 	}
 
 

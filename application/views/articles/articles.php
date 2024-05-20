@@ -210,7 +210,7 @@
 										<!-- <a href="editUser?id=<?= $user["userid"] ?>"
 												class="bg-green-500 hover:bg-green-700 text-gray-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
 											</a> -->
-										<a href="publish?id=<?= $article["submission_id"] ?>"
+										<a href="publishVolume?id=<?= $article["submission_id"] ?>"
 											class="px-2 py-2 bg-[#135D66] rounded-md flex justify-center items-center w-fit">
 											<img src="<?= base_url() ?>assets/arrow-square-up.svg" alt=""
 												class="h-5 w-5 inline-block ">

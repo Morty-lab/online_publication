@@ -1,6 +1,7 @@
 <div class="container mx-auto px-4 py-8">
 	<h2 class="text-2xl font-bold mb-4">Registration Form</h2>
-	<form id="registrationForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="addUser" method="POST">
+	<form id="registrationForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+		action="addUser?role=<?= $role ?>" method="POST">
 		<div class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2" for="completeName">
 				Complete Name
@@ -18,6 +19,30 @@
 				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
 				name="email" id="email" type="email" placeholder="example@example.com" required>
 		</div>
+		<?php
+		if ($role == 3) {
+		?>
+
+		<div class="mb-4">
+			<label class="block text-gray-700 text-sm font-bold mb-2" for="contact_num">
+				Contact Number
+			</label>
+			<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+				name="contact_num" id="contact_num" type="text" placeholder="+63 123 456 7890" required>
+		</div>
+
+		<div class="mb-4">
+			<label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+				Title
+			</label>
+			<input
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+				name="title" id="title" type="text" placeholder="Mr./Mrs." required>
+		</div>
+		<?php
+		}
+		?>
 
 		<div class="mb-6">
 			<label class="block text-gray-700 text-sm font-bold mb-2" for="password">
@@ -56,7 +81,7 @@
 				alert('Please enter a valid email address.');
 				return; // Stop the form submission
 			}
-			
+
 			document.getElementById('registrationForm').submit(); // Submit the form programmatically
 		});
 	</script>
