@@ -16,6 +16,7 @@ class Pages extends CI_Controller
 		$data['articles'] = $this->article_model->get_articles();
 		$data['authors'] = $this->author_model->get_authors();
 		$data['volumes'] = $this->volume_model->get_volumes();
+		
 		$data['article_authors'] = $this->article_author_model->get_article_authors();
         // $data['title'] = ucfirst($page); // Capitalize the first letter
         //Load Page sections header,Main, Footer

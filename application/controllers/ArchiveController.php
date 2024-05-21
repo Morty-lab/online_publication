@@ -14,13 +14,12 @@ class ArchiveController extends CI_Controller
             show_404();
         }
 
-        $data['volumes'] = $this->volume_model->get_volumes();
+        $data['volumes'] = $this->archive_model->get_archives();
 		$data['articles'] = $this->article_model->get_articles();
 
         //Load Page sections header,Main, Footer
         $this->load->view('templates/userHeader', $data);
         $this->load->view('archives/archives' , $data);
-        // $this->load->view('modals/authModal',$data);
         $this->load->view('templates/footer', $data);
     }
 
