@@ -11,7 +11,7 @@
 					</svg>
 				</div>
 				<input type="text" id="simple-search"
-					class="bg-gray-50 border-4 border-[#77B0AA] text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 "
+					class="bg-gray-50 border-4 border-[#77B0AA] text-gray-900 text-sm rounded-3xl focus:ring-[#135D66] focus:border-[#135D66] block w-full ps-10 p-2.5 "
 					placeholder="Search Articles..." required />
 			</div>
 
@@ -21,81 +21,91 @@
 	<div class="col-span-2 ">
 
 		<?php
-		if(empty($articles)){
+		if (empty($articles)) {
 			?>
 			<div
 				class="w-md h-40 mx-auto bg-white rounded-xl shadow-xl shadow-gray-400 overflow-hidden m-4 p-5 border-2 border-gray-300  flex items-center justify-center ">
-			
-					<!-- Article Image -->
-				
-						<h1 class="font-semibold text-2xl">No Articles found</h1>
 
-			
+				<!-- Article Image -->
+
+				<h1 class="font-semibold text-2xl">No Articles found</h1>
+
+
 			</div>
 			<?php
 		}
-		 foreach ($articles as $i): 
-		 ?>
-			<div
-				class="max-w-md mx-auto bg-white rounded-xl shadow-xl shadow-gray-400 overflow-hidden md:max-w-2xl m-4 p-5 border-2 border-gray-300">
-				<div class="uppercase tracking-wide text-lg text-gray-500 font-semibold"><?= $i["title"] ?></div>
-				<div class="md:flex">
-					<!-- Article Image -->
-					<div class="p-8">
-						<h1 class="font-semibold">Abstract</h1>
-						<p class="mt-2 text-gray-500 text-sm"><?= $i["abstract"] ?></p>
+		foreach ($volumes as $i):
+			if ($i["archived"] == false && $i["published"] == true ) {
+				foreach ($articles as $a):
+					if ($a["volumeid"] == $i["volumeid"]) {
 
-					</div>
-					<div class="md:flex-shrink-0">
-						<img class=" w-[180px] object-cover " src="<?= base_url('assets/dummy.png'); ?>"
-							alt="Article Image">
 
-						<i class="text-[10px] text-gray-500 flex flex-col text-center">
-							<span>Published 2024-4-10</span>
-							<span>Issue #2 Vol.24 Social Sciences</span>
-						</i>
-
-					</div>
-					<!-- Article Content -->
-
-				</div>
-				<div class="flex justify-between items-center mt-4">
-					<!-- Read More Button -->
-					<a href="#" class="text-indigo-500 hover:text-indigo-600">Read More <span
-							class="inline-block ml-2">→</span></a>
-					<!-- Author(s) -->
-					<!--  -->
-					<div class="text-sm text-gray-500">
-
-					<?php foreach ($article_authors as $a):
-						if ($a["article_id"] == $i["articleid"]) {
-							foreach ($authors as $j):
-								if ($j["auid"] == $a["audid"]) {
-									?>
-										<?= $j["author_name"] ?>
-									
-									<?php
-								}
-							endforeach;
-						} else {
-							continue;
-						}
 						?>
-						<!-- <div class="text-sm text-gray-500">Author Name</div> -->
-					<?php endforeach; ?>
-					</div>
-				</div>
-			</div>
+						<div
+							class="max-w-md mx-auto bg-white rounded-xl shadow-xl shadow-gray-400 overflow-hidden md:max-w-2xl m-4 p-5 border-2 border-gray-300">
+							<div class="uppercase tracking-wide text-lg text-gray-500 font-semibold"><?= $a["title"] ?></div>
+							<div class="md:flex">
+								<!-- Article Image -->
+								<div class="p-8">
+									<h1 class="font-semibold">Abstract</h1>
+									<p class="mt-2 text-gray-500 text-sm"><?= $a["abstract"] ?></p>
 
-		<?php endforeach; ?>
+								</div>
+								<div class="md:flex-shrink-0">
+									<img class=" w-[180px] object-cover " src="<?= base_url('assets/dummy.png'); ?>"
+										alt="Article Image">
+ 
+									<i class="text-[10px] text-gray-500 flex flex-col text-center">
+										<span>Published 2024-4-10</span>
+										<span>Issue #2 Vol.24 Social Sciences</span>
+									</i>
+
+								</div>
+								<!-- Article Content -->
+
+							</div>
+							<div class="flex justify-between items-center mt-4">
+								<!-- Read More Button -->
+								<a href="#" class="text-indigo-500 hover:text-indigo-600">Read More <span
+										class="inline-block ml-2">→</span></a>
+								<!-- Author(s) -->
+								<!--  -->
+								<div class="text-sm text-gray-500">
+
+									<?php foreach ($article_authors as $aa):
+										if ($aa["article_id"] == $a["articleid"]) {
+											foreach ($authors as $j):
+												if ($j["auid"] == $aa["audid"]) {
+													?>
+													<?= $j["author_name"] ?>
+
+													<?php
+												}
+											endforeach;
+										} else {
+											continue;
+										}
+										?>
+										<!-- <div class="text-sm text-gray-500">Author Name</div> -->
+									<?php endforeach; ?>
+								</div>
+							</div>
+						</div>
+
+						<?php
+
+					}
+				endforeach;
+			}
+		endforeach;
+		?>
 
 
 	</div>
 	<div class="col-span-1 m-4">
 		<div class="bg-white shadow-2xl border-2 border-gray-300 rounded-lg p-6 h-full">
 			<h2 class="text-center text-xl font-bold mb-4">Announcement</h2>
-			<p class="text-center">This is a sample announcement text. It's vertically long with round corners and
-				centered at the top.</p>
+			<p class="text-center"></p>
 		</div>
 	</div>
 </div>
